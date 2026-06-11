@@ -1,0 +1,287 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-slate-50 text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100;
+        background-image:
+            linear-gradient(rgba(37, 99, 235, 0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(37, 99, 235, 0.025) 1px, transparent 1px);
+        background-size: 36px 36px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-ink dark:text-white;
+    }
+
+    label {
+        @apply text-slate-700 dark:text-slate-200;
+    }
+
+    a,
+    button,
+    input,
+    select,
+    textarea {
+        @apply outline-none transition duration-200 ease-out;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+        @apply ring-2 ring-brand-500 ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-950;
+    }
+
+    /* Select — custom chevron arrow, appearance reset */
+    select {
+        -webkit-appearance: none;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E");
+        background-position: right 0.625rem center;
+        background-repeat: no-repeat;
+        background-size: 1.125rem 1.125rem;
+        padding-right: 2.25rem;
+    }
+
+    /* Number inputs — remove browser spin buttons */
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    input[type='number'] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+    }
+
+    /* Checkbox — consistent size, brand color when checked */
+    input[type='checkbox'] {
+        @apply h-4 w-4 cursor-pointer rounded border-slate-300 text-brand-600 shadow-sm transition
+               focus:ring-brand-500 dark:border-slate-600 dark:bg-slate-800 dark:checked:bg-brand-600;
+    }
+
+    /* Radio */
+    input[type='radio'] {
+        @apply h-4 w-4 cursor-pointer border-slate-300 text-brand-600 shadow-sm transition
+               focus:ring-brand-500 dark:border-slate-600 dark:bg-slate-800;
+    }
+
+    /* File input */
+    input[type='file'] {
+        @apply w-full cursor-pointer rounded-xl border border-slate-300 bg-white text-sm text-slate-500
+               shadow-sm transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500
+               dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400;
+    }
+    input[type='file']::file-selector-button {
+        @apply mr-3 cursor-pointer rounded-l-xl border-0 bg-slate-100 px-3 py-2 text-sm font-semibold
+               text-slate-700 transition hover:bg-brand-50 hover:text-brand-700
+               dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700;
+    }
+
+    tbody tr {
+        @apply transition-colors duration-200 hover:bg-brand-50/60 dark:hover:bg-brand-900/10;
+    }
+}
+
+@layer components {
+    .panel {
+        @apply rounded-2xl border border-slate-200/80 bg-white shadow-soft transition duration-300 ease-out dark:border-slate-800 dark:bg-slate-900;
+    }
+
+    .input {
+        @apply rounded-xl border-slate-300 bg-white text-sm shadow-sm transition focus:border-brand-500 focus:ring-brand-500 dark:border-slate-700 dark:bg-slate-900;
+    }
+
+    .interactive-lift {
+        @apply transition duration-300 ease-out hover:-translate-y-1 hover:shadow-xl active:translate-y-0 active:scale-[0.99];
+    }
+
+    .cover-skeleton {
+        background:
+            linear-gradient(
+                110deg,
+                transparent 25%,
+                rgba(255, 255, 255, 0.18) 45%,
+                transparent 65%
+            ),
+            linear-gradient(145deg, #172033, #29364e);
+        background-size:
+            220% 100%,
+            100% 100%;
+        animation: cover-shimmer 1.4s ease-in-out infinite;
+    }
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+    transition:
+        opacity 240ms ease,
+        transform 240ms ease,
+        filter 240ms ease;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    opacity: 0;
+    filter: blur(2px);
+    transform: translateY(10px);
+}
+
+.cookie-notice-enter-active,
+.cookie-notice-leave-active {
+    transition:
+        opacity 260ms ease,
+        transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cookie-notice-enter-from,
+.cookie-notice-leave-to {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+}
+
+.notification-card {
+    animation: item-arrive 300ms ease-out both;
+}
+
+.notif-leave-active {
+    transition: opacity 260ms ease, transform 260ms ease;
+    position: absolute;
+    width: 100%;
+}
+
+.notif-leave-to {
+    opacity: 0;
+    transform: translateX(-1.5rem);
+}
+
+.notif-move {
+    transition: transform 300ms ease;
+}
+
+.hero-orbit {
+    animation: gentle-float 7s ease-in-out infinite;
+}
+
+@keyframes cover-shimmer {
+    to {
+        background-position:
+            -220% 0,
+            0 0;
+    }
+}
+
+@keyframes item-arrive {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gentle-float {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate3d(-8px, 10px, 0) rotate(3deg);
+    }
+}
+
+/* ── View Transitions (page slide navigation) ──────────────────────────── */
+
+/* Strip the default cross-fade so we can define our own animations */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+    will-change: transform, opacity;
+}
+
+/* Forward: new page slides in from right, old slides out to left */
+html[data-slide-direction='forward']::view-transition-old(root) {
+    animation: vt-slide-out-left 280ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+html[data-slide-direction='forward']::view-transition-new(root) {
+    animation: vt-slide-in-right 280ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Backward: new page slides in from left, old slides out to right */
+html[data-slide-direction='backward']::view-transition-old(root) {
+    animation: vt-slide-out-right 280ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+html[data-slide-direction='backward']::view-transition-new(root) {
+    animation: vt-slide-in-left 280ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Neutral: elegant fade-through */
+html[data-slide-direction='neutral']::view-transition-old(root) {
+    animation: vt-fade-out 200ms ease both;
+}
+html[data-slide-direction='neutral']::view-transition-new(root) {
+    animation: vt-fade-in 200ms ease both;
+}
+
+@keyframes vt-slide-out-left {
+    to {
+        transform: translateX(-30%);
+        opacity: 0;
+    }
+}
+@keyframes vt-slide-in-right {
+    from {
+        transform: translateX(30%);
+        opacity: 0;
+    }
+}
+@keyframes vt-slide-out-right {
+    to {
+        transform: translateX(30%);
+        opacity: 0;
+    }
+}
+@keyframes vt-slide-in-left {
+    from {
+        transform: translateX(-30%);
+        opacity: 0;
+    }
+}
+@keyframes vt-fade-out {
+    to {
+        opacity: 0;
+    }
+}
+@keyframes vt-fade-in {
+    from {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 1ms !important;
+    }
+}

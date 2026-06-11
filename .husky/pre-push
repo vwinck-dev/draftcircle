@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+composer analyse && php artisan test --parallel

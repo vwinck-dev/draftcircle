@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450" fill="none">
+  <rect width="300" height="450" fill="#1e293b"/>
+  <rect x="1" y="1" width="298" height="448" rx="2" stroke="#334155" stroke-width="1"/>
+
+  <!-- Book spine shadow -->
+  <rect x="0" y="0" width="18" height="450" fill="#0f172a"/>
+  <rect x="18" y="0" width="2" height="450" fill="#475569"/>
+
+  <!-- Decorative lines at top and bottom -->
+  <rect x="28" y="32" width="244" height="2" fill="#334155"/>
+  <rect x="28" y="416" width="244" height="2" fill="#334155"/>
+
+  <!-- Book icon centered -->
+  <g transform="translate(100, 155)">
+    <!-- Open book shape -->
+    <path d="M50 20 C50 20 28 18 10 26 L10 100 C28 92 50 94 50 94 L50 20Z" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M50 20 C50 20 72 18 90 26 L90 100 C72 92 50 94 50 94 L50 20Z" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="50" y1="20" x2="50" y2="94" stroke="#3b82f6" stroke-width="1.5"/>
+    <!-- Pages lines left -->
+    <line x1="20" y1="42" x2="45" y2="38" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.5"/>
+    <line x1="20" y1="52" x2="45" y2="48" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.5"/>
+    <line x1="20" y1="62" x2="45" y2="58" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.5"/>
+    <line x1="20" y1="72" x2="45" y2="68" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.5"/>
+    <!-- Pages lines right -->
+    <line x1="55" y1="38" x2="80" y2="42" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.5"/>
+    <line x1="55" y1="48" x2="80" y2="52" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.5"/>
+    <line x1="55" y1="58" x2="80" y2="62" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.5"/>
+    <line x1="55" y1="68" x2="80" y2="72" stroke="#3b82f6" stroke-width="0.8" stroke-opacity="0.5"/>
+  </g>
+
+  <!-- Question mark below icon -->
+  <text x="150" y="320" text-anchor="middle" font-family="Georgia, serif" font-size="42" fill="#3b82f6" font-weight="bold" opacity="0.7">?</text>
+
+  <!-- Bottom text -->
+  <text x="150" y="370" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#64748b" letter-spacing="1">Capa não</text>
+  <text x="150" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#64748b" letter-spacing="1">disponível</text>
+</svg>

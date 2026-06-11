@@ -1,0 +1,71 @@
+{
+    "name": "draftcircle",
+    "version": "0.1.0",
+    "description": "A social writing platform where authors create, publish, discuss, and discover books together.",
+    "private": true,
+    "type": "module",
+    "author": "vwinck-dev",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vwinck-dev/draftcircle.git"
+    },
+    "scripts": {
+        "build": "vue-tsc && vite build",
+        "dev": "vite",
+        "lint": "eslint resources/js --max-warnings=0",
+        "format": "prettier --write resources/js",
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "resources/js/**/*.{vue,ts}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "app/**/*.php": [
+            "./vendor/bin/pint"
+        ],
+        "tests/**/*.php": [
+            "./vendor/bin/pint"
+        ],
+        "database/**/*.php": [
+            "./vendor/bin/pint"
+        ]
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^21.0.2",
+        "@commitlint/config-conventional": "^21.0.2",
+        "@eslint/js": "^10.0.1",
+        "@inertiajs/vue3": "^2.0.0",
+        "@tailwindcss/forms": "^0.5.3",
+        "@vitejs/plugin-vue": "^6.0.0",
+        "@vue/eslint-config-typescript": "^14.8.0",
+        "autoprefixer": "^10.4.12",
+        "axios": "^1.7.4",
+        "concurrently": "^9.0.1",
+        "eslint": "^10.4.1",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-vue": "^10.9.2",
+        "husky": "^9.1.7",
+        "laravel-vite-plugin": "^1.2.0",
+        "lint-staged": "^17.0.7",
+        "postcss": "^8.4.31",
+        "prettier": "^3.8.3",
+        "tailwindcss": "^3.2.1",
+        "typescript": "^5.6.3",
+        "typescript-eslint": "^8.60.1",
+        "vite": "^6.0.11",
+        "vue": "^3.4.0",
+        "vue-tsc": "^2.0.24"
+    },
+    "dependencies": {
+        "@headlessui/vue": "^1.7.23",
+        "chart.js": "^4.5.1",
+        "laravel-echo": "^2.3.7",
+        "lucide-vue-next": "^1.0.0",
+        "pinia": "^3.0.4",
+        "pusher-js": "^8.5.0",
+        "sweetalert2": "^11.26.25",
+        "vue-chartjs": "^5.3.3"
+    }
+}
