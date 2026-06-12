@@ -12,12 +12,17 @@ export default tseslint.config(
         files: ['resources/js/**/*.{ts,vue}'],
         languageOptions: {
             globals: {
+                clearTimeout: 'readonly',
                 document: 'readonly',
                 Element: 'readonly',
                 Event: 'readonly',
+                fetch: 'readonly',
                 File: 'readonly',
+                HTMLButtonElement: 'readonly',
                 HTMLImageElement: 'readonly',
                 HTMLInputElement: 'readonly',
+                HTMLMetaElement: 'readonly',
+                HTMLStyleElement: 'readonly',
                 IntersectionObserver: 'readonly',
                 KeyboardEvent: 'readonly',
                 localStorage: 'readonly',

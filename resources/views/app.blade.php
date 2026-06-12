@@ -29,11 +29,13 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700|lora:500,600,700&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         @routes
-        @vite(['resources/js/app.ts', "resources/js/Pages/{$page['component']}.vue"])
+        @vite(['resources/js/app.ts', 'resources/js/demo-overlay-mount.ts', "resources/js/Pages/{$page['component']}.vue"])
         @inertiaHead
     </head>
     <body class="font-sans antialiased">
         @inertia
+        <div id="demo-root"></div>
     </body>
 </html>

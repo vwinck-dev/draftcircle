@@ -52,13 +52,31 @@ services:
       retries: 5
       start_period: 20s
 
+  attacker:
+    build:
+      context: ./docker/attacker
+    restart: unless-stopped
+    networks:
+      - backend
+
   nginx:
     image: nginx:1.28-alpine
     ports:
       - "${APP_HTTP_PORT:-80}:8080"
     volumes:
       - .:/var/www/html:ro
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./docker/nginx/default.conf:/etc/nginx/demo/default-vulnerable.conf:ro
+      - ./docker/nginx/events-vulnerable.conf:/etc/nginx/demo/events-vulnerable.conf:ro
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    tmpfs:
+      - /etc/nginx/conf.d
+      - /etc/nginx/runtime
+    command:
+      [
+        "/bin/sh",
+        "-c",
+        "cp /etc/nginx/demo/default-vulnerable.conf /etc/nginx/conf.d/default.conf && cp /etc/nginx/demo/events-vulnerable.conf /etc/nginx/runtime/events.conf && exec nginx -g 'daemon off;'",
+      ]
     init: true
     networks:
       - backend

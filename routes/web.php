@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\BookCommentController;
 use App\Http\Controllers\BookCommentVoteController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\DemoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\LocaleController;
@@ -84,6 +85,12 @@ Route::middleware(['auth', 'verified'])->group(function (): void {
         Route::get('/settings', [AdminSettingController::class, 'index'])->middleware('role:admin')->name('settings.index');
         Route::put('/settings', [AdminSettingController::class, 'update'])->middleware('role:admin')->name('settings.update');
     });
+});
+
+// Demo presentation routes
+Route::prefix('demo')->middleware('auth')->group(function (): void {
+    Route::post('/attack/start', [DemoController::class, 'startAttack'])->name('demo.attack.start');
+    Route::post('/attack/stop', [DemoController::class, 'stopAttack'])->name('demo.attack.stop');
 });
 
 require __DIR__.'/auth.php';
